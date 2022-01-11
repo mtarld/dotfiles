@@ -1,5 +1,8 @@
 local map = require("core.utils").map
 
+-- global
+map("n", "<leader>qq", ":xa!<CR>")
+
 -- windows
 map("n", "<leader>w/", ":vsp<CR>")
 map("n", "<leader>w_", ":sp<CR>")
@@ -8,9 +11,11 @@ map("n", "<leader>wh", "<C-w>h")
 map("n", "<leader>wj", "<C-w>j")
 map("n", "<leader>wk", "<C-w>k")
 map("n", "<leader>wl", "<C-w>l")
+map("n", "<leader>wm", ":MaximizerToggle<CR>")
 
 -- buffers
 map("n", "<leader>b<TAB>", ":b#<CR>")
+map("n", "<leader>bo", ":silent! w|%bd|e#|bd#<CR>")
 
 -- files
 map("n", "<leader>fr", ":Telescope oldfiles<CR>")
@@ -36,22 +41,21 @@ map("n", "gi", ":lua vim.lsp.buf.implementation()<CR>")
 map("n", "gr", ":lua vim.lsp.buf.references()<CR>")
 map("n", "K", ":lua vim.lsp.buf.hover()<CR>")
 map("n", "<C-k>", ":lua vim.lsp.buf.signature_help()<CR>")
-map("n", "<leader>D", ":lua vim.lsp.buf.type_definition()<CR>") --TODO useless?
 map("n", "<leader>rn", ":lua vim.lsp.buf.rename()<CR>")
 map("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<CR>")
 map("n", "<leader>d", ":lua vim.diagnostic.open_float()<CR>")
 map("n", "<leader>D", ":lua vim.diagnostic.setloclist()<CR>")
 map("n", "<leader>fm", ":lua vim.lsp.buf.formatting()<CR>")
 
-  -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-
--- ripgrep
-map("n", "<leader>.", ":Telescope live_grep <CR>")
-map("n", "<leader>/", ":lua require('telescope.builtin').live_grep({additional_args = function () return {'--no-ignore'} end}) <CR>")
-map("n", "<leader>!", ":Telescope live_grep_raw <CR>")
-
 -- search
-map("n", "<C-s>", ":lua require('telescope.builtin').current_buffer_fuzzy_find() <CR>")
+map("n", "<leader>.", ":Telescope live_grep<CR>")
+map("n", "<leader>/", ":lua require('telescope.builtin').live_grep({additional_args = function () return {'--no-ignore'} end})<CR>")
+map("n", "<leader>!", ":Telescope live_grep_raw<CR>")
+map("n", "<leader>ff", ":lua require('telescope').extensions.file_browser.file_browser()<CR>")
+map("n", "<C-s>", ":Telescope current_buffer_fuzzy_find<CR>")
+
+-- directory
+map("n", "<leader>oo", ":lua require('custom.plugins.directory').cwd_root()<CR>")
+map("n", "<leader>o-", ":lua require('custom.plugins.directory').cwd_buffer()<CR>")
+map("n", "<leader>^", ":lua require('custom.plugins.directory').cwd_parent()<CR>")
 

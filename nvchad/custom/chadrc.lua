@@ -4,10 +4,6 @@ M.ui = {
   theme = "onedark",
 }
 
-M.options = {
-  shiftwidth = 4,
-}
-
 M.plugins = {
   status = {
     bufferline = false,
@@ -28,33 +24,14 @@ M.mappings = {
 
   plugins = {
     telescope = {
-      buffers = "<leader> ",
+      buffers = "<leader>bb",
       git_status = "<leader>gg",
+      find_files = "<leader> ",
     },
     comment = {
       toggle = "<leader>cl",
     },
   },
-
-  -- lspconfig = {
-  --   declaration = "gD",
-  --   definition = "gd",
-  --   hover = "K",
-  --   implementation = "<leader>ci",
-  --   signature_help = "gk",
-  --   add_workspace_folder = "<leader>wa",
-  --   remove_workspace_folder = "<leader>wr",
-  --   list_workspace_folders = "<leader>wl",
-  --   type_definition = "<leader>D",
-  --   rename = "<leader>rn",
-  --   code_action = "<leader>ca",
-  --   references = "gr",
-  --   float_diagnostics = "ge",
-  --   goto_prev = "[d",
-  --   goto_next = "]d",
-  --   set_loclist = "<leader>q",
-  --   formatting = "<leader>fm",
-  -- },
 
   terminal = {
     pick_term = "<leader>cf",

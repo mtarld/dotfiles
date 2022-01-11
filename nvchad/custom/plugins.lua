@@ -8,4 +8,17 @@ customPlugins.add(function(use)
       require("telescope").load_extension "live_grep_raw"
     end,
   }
+
+  use {
+    "nvim-telescope/telescope-file-browser.nvim",
+    after = "telescope.nvim",
+    config = function()
+      require("telescope").load_extension "file_browser"
+    end,
+  }
+
+  use {
+    "szw/vim-maximizer",
+    cmd = "MaximizerToggle"
+  }
 end)
