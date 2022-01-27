@@ -1,3 +1,5 @@
+-- TODO see which config could be overriden (telescope's for example)
+
 local M = {}
 
 M.ui = {
@@ -6,13 +8,7 @@ M.ui = {
 
 M.plugins = {
   status = {
-    bufferline = false,
     colorizer = true,
-  },
-  options = {
-    lspconfig = {
-      setup_lspconf = "custom.plugins.lsp",
-    },
   },
 }
 
@@ -24,19 +20,20 @@ M.mappings = {
 
   plugins = {
     telescope = {
-      buffers = "<leader>bb",
-      git_status = "<leader>gg",
       find_files = "<leader> ",
     },
     comment = {
       toggle = "<leader>cl",
     },
+    lspconfig = {
+      list_workspace_folders = "",
+    },
   },
 
   terminal = {
     pick_term = "<leader>cf",
-    new_horizontal = "<leader>ch",
-    new_vertical = "<leader>cv",
+    new_horizontal = "<leader>c_",
+    new_vertical = "<leader>c/",
     new_window = "<leader>cc",
   },
 }

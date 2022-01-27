@@ -1,5 +1,3 @@
-
-
 local M = {}
 
 local function is_file_readable(fname)
@@ -8,7 +6,7 @@ local function is_file_readable(fname)
 end
 
 local function get_root_path()
-  return require('custom.plugins.directory').root_dir()
+  return require('custom.plugins.directory').root_dir() -- TODO fix it
 end
 
 local function find_config_path()

@@ -14,14 +14,18 @@ map("n", "<leader>wl", "<C-w>l")
 map("n", "<leader>wm", ":MaximizerToggle<CR>")
 
 -- buffers
-map("n", "<leader>b<TAB>", ":b#<CR>")
+-- TODO scratch buffer / notes
+map("n", "<leader>b<TAB>", ":lua require('custom.plugins.buffer').switch_to_last_buffer()<CR>")
+map("n", "<leader>bx", ":lua require('custom.plugins.buffer').switch_to_scratch_buffer()<CR>")
 map("n", "<leader>bo", ":silent! w|%bd|e#|bd#<CR>")
 
 -- files
 map("n", "<leader>fr", ":Telescope oldfiles<CR>")
 
 -- git
-map("n", "<leader>gg", ":Telescope git_status<CR>")
+map("n", "<leader>gg", ":Git<CR>")
+map("n", "<leader>gf", ":diffget //2<CR>")
+map("n", "<leader>gh", ":diffget //3<CR>")
 map("n", "<leader>gb", ":Telescope git_branches<CR>")
 map("n", "<leader>gc", ":Telescope git_commits<CR>")
 map("n", "<leader>gl", ":Telescope git_bcommits<CR>")
@@ -49,10 +53,13 @@ map("n", "<leader>fm", ":lua vim.lsp.buf.formatting()<CR>")
 
 -- search
 map("n", "<leader>.", ":Telescope live_grep<CR>")
+-- map("n", "<leader>/", ":Telescope live_grep additional_args=['--no-ignore']<CR>")
 map("n", "<leader>/", ":lua require('telescope.builtin').live_grep({additional_args = function () return {'--no-ignore'} end})<CR>")
-map("n", "<leader>!", ":Telescope live_grep_raw<CR>")
-map("n", "<leader>ff", ":lua require('telescope').extensions.file_browser.file_browser()<CR>")
+map("n", "<leader>§", ":Telescope live_grep_raw<CR>")
+map("n", "<leader>ff", ":lua require('telescope').extensions.file_browser.file_browser()<CR>") -- TODO start from current folder
+map("n", "<leader>pp", ":Telescope project<CR>")
 map("n", "<C-s>", ":Telescope current_buffer_fuzzy_find<CR>")
+map("n", "<leader>bb", ":Telescope buffers sort_mru=true ignore_current_buffer=true<CR>")
 
 -- directory
 map("n", "<leader>oo", ":lua require('custom.plugins.directory').cwd_root()<CR>")
