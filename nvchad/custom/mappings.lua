@@ -14,9 +14,9 @@ map("n", "<leader>wl", "<C-w>l")
 map("n", "<leader>wm", ":MaximizerToggle<CR>")
 
 -- buffers
--- TODO scratch buffer / notes
 map("n", "<leader>b<TAB>", ":lua require('custom.plugins.buffer').switch_to_last_buffer()<CR>")
-map("n", "<leader>bx", ":lua require('custom.plugins.buffer').switch_to_scratch_buffer()<CR>")
+map("n", "<leader>bx", ":Scratch<CR>")
+map("n", "<leader>px", ":e" .. vim.fn.stdpath "config" .. "/lua/custom/plugins/buffer/projects.md<CR>")
 map("n", "<leader>bo", ":silent! w|%bd|e#|bd#<CR>")
 
 -- files
@@ -53,16 +53,17 @@ map("n", "<leader>fm", ":lua vim.lsp.buf.formatting()<CR>")
 
 -- search
 map("n", "<leader>.", ":Telescope live_grep<CR>")
--- map("n", "<leader>/", ":Telescope live_grep additional_args=['--no-ignore']<CR>")
 map("n", "<leader>/", ":lua require('telescope.builtin').live_grep({additional_args = function () return {'--no-ignore'} end})<CR>")
 map("n", "<leader>§", ":Telescope live_grep_raw<CR>")
-map("n", "<leader>ff", ":lua require('telescope').extensions.file_browser.file_browser()<CR>") -- TODO start from current folder
+map("n", "<leader>ff", ":lua require('telescope').extensions.file_browser.file_browser({ path = require('custom.plugins.directory').buffer_dir() })<CR>")
 map("n", "<leader>pp", ":Telescope project<CR>")
 map("n", "<C-s>", ":Telescope current_buffer_fuzzy_find<CR>")
-map("n", "<leader>bb", ":Telescope buffers sort_mru=true ignore_current_buffer=true<CR>")
+map("n", "<leader>bb", ":Telescope buffers<CR>")
 
 -- directory
 map("n", "<leader>oo", ":lua require('custom.plugins.directory').cwd_root()<CR>")
 map("n", "<leader>o-", ":lua require('custom.plugins.directory').cwd_buffer()<CR>")
 map("n", "<leader>^", ":lua require('custom.plugins.directory').cwd_parent()<CR>")
 
+-- http
+map("n", "<leader>hr", ":lua require('rest-nvim').run()<CR>")

@@ -9,7 +9,7 @@ local function buffer_directory()
 end
 
 local function root_directory()
-  local cmd = "git -C " .. vim.fn.shellescape(vim.fn.getcwd()) .. " rev-parse --show-toplevel"
+  local cmd = "git -C " .. vim.fn.shellescape(vim.fn.expand("%:p:h")) .. " rev-parse --show-toplevel"
   local toplevel = vim.fn.system(cmd)
 
   if not toplevel or #toplevel == 0 or toplevel:match("fatal") then

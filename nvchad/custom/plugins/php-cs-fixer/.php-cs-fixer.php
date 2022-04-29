@@ -14,6 +14,8 @@ return (new PhpCsFixer\Config())
             'imports_order' => ['class', 'function', 'const'],
             'sort_algorithm' => 'alpha',
         ],
+	'declare_strict_types' => true,
+
     ])
     ->setRiskyAllowed(true)
 ;

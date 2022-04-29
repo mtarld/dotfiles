@@ -1,4 +1,5 @@
 alias ll='ls -lAh'
+alias c='clear'
 
 # Tmux
 alias mux='tmuxinator'

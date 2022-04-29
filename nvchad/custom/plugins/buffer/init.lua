@@ -1,6 +1,6 @@
 local M = {}
 
-local function get_buffers(ignore_current_buffer) -- TODO exclude terminal buffer
+local function get_buffers(ignore_current_buffer)
   return vim.tbl_filter(function(b)
     if 1 ~= vim.fn.buflisted(b) then
       return false
@@ -34,4 +34,3 @@ end
 return {
   switch_to_last_buffer = switch_to_last_buffer,
 }
-

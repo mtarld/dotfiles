@@ -6,7 +6,7 @@ local function is_file_readable(fname)
 end
 
 local function get_root_path()
-  return require('custom.plugins.directory').root_dir() -- TODO fix it
+  return require('custom.plugins.directory').root_dir()
 end
 
 local function find_config_path()

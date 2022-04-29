@@ -1,12 +1,22 @@
--- TODO see which config could be overriden (telescope's for example)
-
 local M = {}
+
+local overriden_plugin_config = require "custom.plugins.configs"
 
 M.ui = {
   theme = "onedark",
 }
 
 M.plugins = {
+  install = require "custom.plugins",
+  options = {
+    lspconfig = {
+      setup_lspconf = "custom.plugins.lspconfig",
+    },
+  },
+  default_plugin_config_replace = {
+    nvim_treesitter = overriden_plugin_config.treesitter,
+    telescope = overriden_plugin_config.telescope,
+  },
   status = {
     colorizer = true,
   },
