@@ -1,51 +1,40 @@
-local M = {}
+local pluginConfigs = require "custom.plugins.configs"
 
-local overriden_plugin_config = require "custom.plugins.configs"
+local M = {}
 
 M.ui = {
   theme = "onedark",
 }
 
 M.plugins = {
-  install = require "custom.plugins",
+  user = require("custom.plugins"),
+
   options = {
     lspconfig = {
       setup_lspconf = "custom.plugins.lspconfig",
     },
   },
-  default_plugin_config_replace = {
-    nvim_treesitter = overriden_plugin_config.treesitter,
-    telescope = overriden_plugin_config.telescope,
+
+  override = {
+    ["nvim-treesitter/nvim-treesitter"] = pluginConfigs.treesitter,
+    ["nvim-telescope/telescope.nvim"] = pluginConfigs.telescope,
   },
-  status = {
-    colorizer = true,
+
+  remove = {
+    "akinsho/bufferline.nvim",
   },
 }
 
 M.mappings = {
-  misc = {
-    save_file = "<leader>fs",
-    close_buffer = "<leader>bd",
-  },
+   misc = function()
+     require("custom.mappings")
+   end,
+}
 
-  plugins = {
-    telescope = {
-      find_files = "<leader> ",
-    },
-    comment = {
-      toggle = "<leader>cl",
-    },
-    lspconfig = {
-      list_workspace_folders = "",
-    },
-  },
-
-  terminal = {
-    pick_term = "<leader>cf",
-    new_horizontal = "<leader>c_",
-    new_vertical = "<leader>c/",
-    new_window = "<leader>cc",
-  },
+M.options = {
+   user = function()
+     vim.opt.rtp:append(vim.fn.stdpath "config" .. "/lua/custom/runtime/after")
+   end,
 }
 
 return M

@@ -1,5 +1,3 @@
-local M = {}
-
 local function cwd(path)
   vim.cmd("cd " .. path)
 end
