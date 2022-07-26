@@ -2,15 +2,18 @@ local M = {}
 
 M.treesitter = {
   ensure_installed = {
+    "php",
     "css",
     "html",
     "javascript",
     "json",
     "markdown",
-    "php",
     "org",
     "lua",
     "bash",
+  },
+  indent = {
+    enable = true,
   },
 }
 

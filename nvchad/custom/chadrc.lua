@@ -27,10 +27,4 @@ M.plugins = {
 
 M.mappings = mappings
 
-M.options = {
-   user = function()
-     vim.opt.rtp:append(vim.fn.stdpath "config" .. "/lua/custom/runtime/after")
-   end,
-}
-
 return M
