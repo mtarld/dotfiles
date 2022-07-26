@@ -64,7 +64,17 @@ M.telescope = {
     ["<leader>gc"] = { ":Telescope git_commits<CR>", "  find git commits" },
     ["<leader>gl"] = { ":Telescope git_bcommits<CR>", "  find git branch commits" },
     ["<leader> "] = { ":Telescope find_files<CR>", "  find files" },
-    ["<leader>ff"] = { ":Telescope file_browser<CR>", "  file browser" },
+    ["<leader>ff"] = {
+      function()
+        require("telescope").extensions.file_browser.file_browser({
+          hidden = true,
+          grouped = true,
+          path = require("custom.plugins.directory").buffer_dir(),
+          cwd_to_path = true,
+        })
+      end,
+      "  file browser",
+    },
     ["<leader>/"] = {
       function()
         require("telescope.builtin").live_grep({

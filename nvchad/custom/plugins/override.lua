@@ -32,14 +32,6 @@ M.telescope = {
       },
     },
   },
-  extensions = {
-    file_browser = {
-      hidden = true,
-      grouped = true,
-      path = require("custom.plugins.directory").buffer_dir(),
-      cwd_to_path = true,
-    },
-  },
 }
 
 M.ui = {
