@@ -1,4 +1,6 @@
-local pluginConfigs = require "custom.plugins.configs"
+local override = require "custom.plugins.override"
+local userPlugins = require "custom.plugins"
+local mappings = require "custom.mappings"
 
 local M = {}
 
@@ -7,7 +9,7 @@ M.ui = {
 }
 
 M.plugins = {
-  user = require("custom.plugins"),
+  user = userPlugins,
 
   options = {
     lspconfig = {
@@ -16,20 +18,14 @@ M.plugins = {
   },
 
   override = {
-    ["nvim-treesitter/nvim-treesitter"] = pluginConfigs.treesitter,
-    ["nvim-telescope/telescope.nvim"] = pluginConfigs.telescope,
-  },
-
-  remove = {
-    "akinsho/bufferline.nvim",
+    ["nvim-treesitter/nvim-treesitter"] = override.treesitter,
+    ["nvim-telescope/telescope.nvim"] = override.telescope,
+    ["NvChad/ui"] = override.ui,
+    ["williamboman/mason.nvim"] = override.mason,
   },
 }
 
-M.mappings = {
-   misc = function()
-     require("custom.mappings")
-   end,
-}
+M.mappings = mappings
 
 M.options = {
    user = function()

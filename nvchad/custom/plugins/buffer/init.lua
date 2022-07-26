@@ -1,21 +1,21 @@
 local M = {}
 
-local function get_buffers(ignore_current_buffer)
-  return vim.tbl_filter(function(b)
-    if 1 ~= vim.fn.buflisted(b) then
-      return false
-    end
+M.get_buffers = function(ignore_current_buffer)
+  local buffers = require("core.utils").bufilter() or {}
 
-    if ignore_current_buffer and b == vim.api.nvim_get_current_buf() then
-      return false
+  if ignore_current_buffer then
+    for i = #buffers, 1, -1 do
+      if buffers[i] == vim.api.nvim_get_current_buf() then
+        table.remove(buffers, i)
+      end
     end
+  end
 
-    return true
-  end, vim.api.nvim_list_bufs())
+  return buffers
 end
 
-local function get_last_buffer()
-  buffers = get_buffers{ignore_current_buffer=true}
+M.get_last_buffer = function()
+  local buffers = M.get_buffers{ignore_current_buffer=true}
 
   table.sort(buffers, function(a, b)
     return vim.fn.getbufinfo(a)[1].lastused > vim.fn.getbufinfo(b)[1].lastused
@@ -24,13 +24,11 @@ local function get_last_buffer()
   return buffers[1];
 end
 
-local function switch_to_last_buffer()
-  last_buffer = get_last_buffer()
+M.switch_to_last_buffer = function()
+  local last_buffer = M.get_last_buffer()
   if nil ~= last_buffer then
-    vim.cmd("b" .. get_last_buffer())
+    vim.cmd("b" .. last_buffer)
   end
 end
 
-return {
-  switch_to_last_buffer = switch_to_last_buffer,
-}
+return M
