@@ -17,6 +17,7 @@ M.windows = {
     ["<leader>wj"] = { "<C-w>j", " window bottom" },
     ["<leader>wk"] = { "<C-w>k", " window top" },
     ["<leader>wm"] = { ":MaximizerToggle<CR>", "  maximize window" },
+    ["<leader>ws"] = { ":lua require('shade').toggle()<CR>", "  toggle window shading" },
     ["<C-l>"] = { ":TmuxNavigateRight<CR>", " window right (tmux included)" },
     ["<C-h>"] = { ":TmuxNavigateLeft<CR>", " window left (tmux included)" },
     ["<C-j>"] = { ":TmuxNavigateBottom<CR>", " window bottom (tmux included)" },
@@ -102,7 +103,6 @@ M.git = {
     ["<leader>gU"] = { ":lua require('gitsigns').reset_buffer_index() <CR>", "Reset buffer index" },
     ["<leader>gr"] = { ":lua require('gitsigns').reset_hunk()<CR>", "Reset hunk" },
     ["<leader>gp"] = { ":lua require('gitsigns').preview_hunk()<CR>", "Preview hunk" },
-    ["<leader>gd"] = { ":lua require('custom.plugins.git').compare()<CR>", "Compare with another branch" },
     ["<leader>gd"] = {
       function()
         require("custom.plugins.git").compare()
