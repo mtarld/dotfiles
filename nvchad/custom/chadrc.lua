@@ -6,6 +6,7 @@ local M = {}
 
 M.ui = {
   theme = "onedark",
+  hl_override = require("custom.highlights").overriden_hlgroups,
 }
 
 M.plugins = {
@@ -22,6 +23,7 @@ M.plugins = {
     ["nvim-telescope/telescope.nvim"] = override.telescope,
     ["NvChad/ui"] = override.ui,
     ["williamboman/mason.nvim"] = override.mason,
+    ["goolord/alpha-nvim"] = override.alpha,
   },
 }
 

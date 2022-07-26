@@ -41,7 +41,7 @@ M.buffers = {
     },
     ["<leader>bo"] = { ":silent! w|%bd|e#|bd#<CR>", " close other buffers" },
     ["<leader>bx"] = { ":Scratch<CR>", "烙 open scratch buffer" },
-    ["<leader>px"] = { ":e" .. vim.fn.stdpath "config" .. "/lua/custom/plugins/buffer/projects.md<CR>", "烙 open project buffer" },
+    ["<leader>px"] = { ":e" .. vim.fn.stdpath "config" .. "/lua/custom/plugins/buffer/projects.org<CR>", "烙 open project buffer" },
     ["<TAB>"] = { "" },
     ["<S-Tab>"] = { "" },
   },

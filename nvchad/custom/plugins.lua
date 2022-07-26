@@ -1,5 +1,7 @@
 return {
 
+  -- telescope
+
   ["nvim-telescope/telescope-live-grep-args.nvim"] = {
     after = "telescope.nvim",
     config = function()
@@ -112,5 +114,11 @@ return {
         org_hide_leading_stars = true,
       })
     end,
+  },
+
+  -- dashboard
+
+  ["goolord/alpha-nvim"] = {
+    disable = false,
   },
 }
