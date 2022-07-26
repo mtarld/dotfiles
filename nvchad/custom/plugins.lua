@@ -85,24 +85,21 @@ return {
     config = function()
       require('orgmode').setup_ts_grammar()
       require("orgmode").setup({
-        win_split_mode = 'tabnew',
+        win_split_mode = 'float',
         org_default_notes_file = '~/Documents/perso/dotfiles/nvchad/custom/plugins/buffer/projects.org',
         org_agenda_files = {
-          '~/Documents/perso/dotfiles/nvchad/custom/plugins/buffer/agenda.org',
           '~/Documents/perso/dotfiles/nvchad/custom/plugins/buffer/projects.org',
         },
-        org_todo_keywords = {'TODO(t)', 'NEXT(n)', 'IN PROGRESS(i)', 'WAITING(w)', '|', 'DONE(d)', 'CANCELED(c)'},
-        --org_todo_keyword_faces = { --TODO fixme
-          --'NEXT' = ':foreground blue :weight bold',
-          --'IN PROGRESS' = ':foreground yellow :weight bold',
-          --'WAITING' = ':foreground orange',
-          --'TODO' = ':foreground red',
-          --'CANCELED' = ':foreground #303030',
-        --},
+        org_todo_keywords = {'TODO(t)', 'NEXT(n)', 'IN_PROGRESS(i)', 'WAITING(w)', 'POSTPONED(p)', '|', 'DONE(d)', 'CANCELED(c)'},
+        org_todo_keyword_faces = {
+          ['TODO'] = ':foreground #E06C75 :weight bold',
+          ['NEXT'] = ':foreground #00AFFF :weight bold',
+          ['IN_PROGRESS'] = ':foreground #80A469 :weight bold',
+          ['WAITING'] = ':foreground #D19A66 :weight bolde',
+          ['POSTPONED'] = ':foreground #808080 :weight bold',
+          ['CANCELED'] = ':foreground #707070 :weight bold',
+        },
         org_hide_leading_stars = true,
-        mappings = {
-          disable_all = true, -- TODO fixme
-        }
       })
     end,
   },
