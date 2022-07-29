@@ -5,7 +5,7 @@ local mappings = require "custom.mappings"
 local M = {}
 
 M.ui = {
-  theme = "onedark",
+  theme = "one_light",
   hl_override = require("custom.highlights").overriden_hlgroups,
 }
 

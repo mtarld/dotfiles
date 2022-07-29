@@ -15,17 +15,17 @@ local function find_config_path()
     return config_path
   end
 
-  local config_path = get_root_path() .. "/.php-cs-fixer.dist.php"
+  config_path = get_root_path() .. "/.php-cs-fixer.dist.php"
   if is_file_readable(config_path) then
     return config_path
   end
 
-  local config_path = get_root_path() .. "/tools/.php-cs-fixer.php"
+  config_path = get_root_path() .. "/tools/.php-cs-fixer.php"
   if is_file_readable(config_path) then
     return config_path
   end
 
-  local config_path = get_root_path() .. "/tools/.php-cs-fixer.dist.php"
+  config_path = get_root_path() .. "/tools/.php-cs-fixer.dist.php"
   if is_file_readable(config_path) then
     return config_path
   end
