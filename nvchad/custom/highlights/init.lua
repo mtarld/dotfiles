@@ -3,6 +3,12 @@ local M = {
     AlphaHeader = {
       fg = "#E1AA29",
     },
+    MatchWord = {
+      bg = "#EAEAEB",
+    },
+    IndentBlanklineContextStart = {
+      bg = "#EFEFF0",
+    },
   },
 }
 

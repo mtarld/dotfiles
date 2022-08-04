@@ -2,26 +2,76 @@ local M = {}
 
 M.general = {
   n = {
-    ["<leader>qq"] = { ":xa!<CR>", " quit nvim" },
-    ["<leader>fs"] = { ":w<CR>", "﬚ save file" },
+    ["<leader>qq"] = {
+      function()
+        vim.cmd("xa!")
+      end,
+      "  quit nvim",
+    },
+    ["<leader>fs"] = {
+      function()
+        vim.cmd("w")
+      end,
+      "﬚  save file",
+    },
   },
 }
 
 M.windows = {
   n = {
-    ["<leader>w/"] = { ":vsp<CR>", "- split window vertically" },
-    ["<leader>w_"] = { ":sp<CR>", "| split window horizontally" },
-    ["<leader>wd"] = { "<C-w>q", " close window" },
-    ["<leader>wl"] = { "<C-w>l", " window right" },
-    ["<leader>wh"] = { "<C-w>h", " window left" },
-    ["<leader>wj"] = { "<C-w>j", " window bottom" },
-    ["<leader>wk"] = { "<C-w>k", " window top" },
-    ["<leader>wm"] = { ":MaximizerToggle<CR>", "  maximize window" },
-    ["<leader>ws"] = { ":lua require('shade').toggle()<CR>", "  toggle window shading" },
-    ["<C-l>"] = { ":TmuxNavigateRight<CR>", " window right (tmux included)" },
-    ["<C-h>"] = { ":TmuxNavigateLeft<CR>", " window left (tmux included)" },
-    ["<C-j>"] = { ":TmuxNavigateDown<CR>", " window bottom (tmux included)" },
-    ["<C-k>"] = { ":TmuxNavigateUp<CR>", " window top (tmux included)" },
+    ["<leader>w/"] = {
+      function()
+        vim.cmd("vsp")
+      end,
+      "-  split window vertically",
+    },
+    ["<leader>w_"] = {
+      function()
+        vim.cmd("sp")
+      end,
+      "|  split window horizontally",
+    },
+    ["<leader>wd"] = { "<C-w>q", "  close window" },
+    ["<leader>wl"] = { "<C-w>l", "  window right" },
+    ["<leader>wh"] = { "<C-w>h", "  window left" },
+    ["<leader>wj"] = { "<C-w>j", "  window bottom" },
+    ["<leader>wk"] = { "<C-w>k", "  window top" },
+    ["<leader>wm"] = {
+      function()
+        vim.cmd("MaximizerToggle") -- TODO doesn't seem to toggle off properly
+      end,
+      "  maximize window",
+    },
+    ["<leader>ws"] = {
+      function()
+        require("shade").toggle()
+      end,
+      "  toggle window shading",
+    },
+    ["<C-l>"] = {
+      function()
+        vim.cmd("TmuxNavigateRight")
+      end,
+      "  window right (tmux included)",
+    },
+    ["<C-h>"] = {
+      function()
+        vim.cmd("TmuxNavigateLeft")
+      end,
+      "  window left (tmux included)",
+    },
+    ["<C-j>"] = {
+      function()
+        vim.cmd("TmuxNavigateDown")
+      end,
+      "  window bottom (tmux included)",
+    },
+    ["<C-k>"] = {
+      function()
+        vim.cmd("TmuxNavigateUp")
+      end,
+      "  window top (tmux included)",
+    },
   },
 }
 
@@ -29,42 +79,112 @@ M.buffers = {
   n = {
     ["<leader>b<TAB>"] = {
       function()
-        require('custom.plugins.buffer').switch_to_last_buffer()
+        require("custom.plugins.buffer").switch_to_last_buffer()
       end,
-      " last buffer",
+      "  last buffer",
     },
     ["<leader>bd"] = {
       function()
         require("core.utils").close_buffer()
       end,
-      "Close buffer",
+      "  close buffer",
     },
-    ["<leader>bo"] = { ":silent! w|%bd|e#|bd#<CR>", " close other buffers" },
-    ["<leader>bx"] = { ":Scratch<CR>", "烙 open scratch buffer" },
-    ["<leader>px"] = { ":e" .. vim.fn.stdpath "config" .. "/lua/custom/plugins/buffer/projects.org<CR>", "烙 open project buffer" },
-    ["<TAB>"] = { "" },
+    ["<leader>bo"] = {
+      function()
+        require("custom.plugins.buffer").close_other_buffers()
+      end,
+      "  close other buffers",
+    },
+    ["<leader>bx"] = {
+      function()
+        vim.cmd("Scratch")
+      end,
+      "烙 open scratch buffer"
+    },
+    ["<leader>px"] = {
+      function()
+        vim.cmd("e" .. vim.fn.stdpath("config") .. "/lua/custom/plugins/buffer/projects.org")
+      end,
+      "烙 open project buffer",
+    },
+    ["<TAB>"] = { "" }, -- TODO maybe there is a better way to unmap this
     ["<S-Tab>"] = { "" },
   },
 }
 
 M.directory = {
   n = {
-    ["<leader>oo"] = { ":lua require('custom.plugins.directory').cwd_root()<CR>", "Set current directory to root" },
-    ["<leader>o-"] = { ":lua require('custom.plugins.directory').cwd_buffer()<CR>", "Set current directory to buffer one" },
-    ["<leader>^"] = { ":lua require('custom.plugins.directory').cwd_parent()<CR>", "Set current directory to parent" },
+    ["<leader>oo"] = {
+      function()
+        require("custom.plugins.directory").cwd_root()
+      end,
+      "  Set current directory to root",
+    },
+    ["<leader>o-"] = {
+      function()
+        require("custom.plugins.directory").cwd_buffer()
+      end,
+      "  Set current directory to buffer one",
+    },
+    ["<leader>^"] = {
+      function()
+        require("custom.plugins.directory").cwd_parent()
+      end,
+      "  Set current directory to parent",
+    },
   },
 }
 
 M.telescope = {
   n = {
-    ["<leader>."] = { ":Telescope live_grep<CR>", "  find in files" },
-    ["<C-s>"] = { ":Telescope current_buffer_fuzzy_find<CR>", "  find in buffer" },
-    ["<leader>bb"] = { ":Telescope buffers<CR>", "  find buffers" },
-    ["<leader>fr"] = { ":Telescope oldfiles<CR>", "  find old files" },
-    ["<leader>gb"] = { ":Telescope git_branches<CR>", "  find git branches" },
-    ["<leader>gc"] = { ":Telescope git_commits<CR>", "  find git commits" },
-    ["<leader>gl"] = { ":Telescope git_bcommits<CR>", "  find git branch commits" },
-    ["<leader> "] = { ":Telescope find_files<CR>", "  find files" },
+    ["<leader>."] = {
+      function()
+        vim.cmd("Telescope live_grep")
+      end,
+      "  find in files",
+    },
+    ["<C-s>"] = {
+      function()
+        vim.cmd("Telescope current_buffer_fuzzy_find")
+      end,
+      "  find in buffer",
+    },
+    ["<leader>bb"] = {
+      function()
+        vim.cmd("Telescope buffers")
+      end,
+      "  find buffers",
+    },
+    ["<leader>fr"] = {
+      function()
+        vim.cmd("Telescope oldfiles")
+      end,
+      "  find old files",
+    },
+    ["<leader>gb"] = {
+      function()
+        vim.cmd("Telescope git_branches")
+      end,
+      "  find git branches",
+    },
+    ["<leader>gc"] = {
+      function()
+        vim.cmd("Telescope git_commits")
+      end,
+      "  find git commits",
+    },
+    ["<leader>gl"] = {
+      function()
+        vim.cmd("Telescope git_bcommits")
+      end,
+      "  find git branch commits",
+    },
+    ["<leader> "] = {
+      function()
+        vim.cmd("Telescope find_files")
+      end,
+      "  find files",
+    },
     ["<leader>ff"] = {
       function()
         require("telescope").extensions.file_browser.file_browser({
@@ -80,34 +200,83 @@ M.telescope = {
       function()
         require("telescope.builtin").live_grep({
           additional_args = function ()
-            return { '--no-ignore' }
+            return { "--no-ignore" }
           end
         })
       end,
       "  find in files (ignored files included)",
     },
-    ["<leader>§"] = { ":Telescope live_grep_args<CR>", "  find in files (with ripgrep args)" },
+    ["<leader>§"] = {
+      function()
+        vim.cmd("Telescope live_grep_args")
+      end,
+      "  find in files (with ripgrep args)",
+    },
+    ["gd"] = {
+      function()
+        vim.cmd("Telescope lsp_definitions")
+      end,
+      "  find LSP definitions",
+    },
+    ["gr"] = {
+      function()
+        vim.cmd("Telescope lsp_references")
+      end,
+      "  find LSP references",
+    },
   },
 }
 
+-- TODO gitsigns when staged
 M.git = {
   n = {
-    ["<leader>gg"] = { "<cmd> Git<CR>", "Open git window" },
-    ["<leader>gf"] = { "<cmd> diffget //2<CR>", "Apply left diff" },
-    ["<leader>gh"] = { "<cmd> diffget //3<CR>", "Apply right diff" },
-    ["<leader>gn"] = { ":lua require('gitsigns').next_hunk()<CR>", "Next hunk" },
-    ["<leader>gN"] = { ":lua require('gitsigns').prev_hunk()<CR>", "Prev hunk" },
-    ["<leader>gs"] = { ":lua require('gitsigns').stage_hunk()<CR>", "Stage hunk" },
-    ["<leader>gu"] = { ":lua require('gitsigns').undo_stage_hunk()<CR>", "Unstage hunk" },
-    ["<leader>gS"] = { ":lua require('gitsigns').stage_buffer()<CR>", "Stage buffer" },
-    ["<leader>gU"] = { ":lua require('gitsigns').reset_buffer_index() <CR>", "Reset buffer index" },
-    ["<leader>gr"] = { ":lua require('gitsigns').reset_hunk()<CR>", "Reset hunk" },
-    ["<leader>gp"] = { ":lua require('gitsigns').preview_hunk()<CR>", "Preview hunk" },
+    ["<leader>gg"] = {
+      function()
+        vim.cmd("Git")
+      end,
+      "  git status",
+    },
+    ["<leader>gf"] = {
+      function()
+        vim.cmd("diffget //2")
+      end,
+      "  apply left diff",
+    },
+    ["<leader>gh"] = {
+      function()
+        vim.cmd("diffget //3")
+      end,
+      "  apply right diff",
+    },
+    ["<leader>gs"] = {
+      function()
+        require("gitsigns").stage_hunk()
+      end,
+      "烙  stage hunk",
+    },
+    ["<leader>gu"] = {
+      function()
+        require("gitsigns").undo_stage_hunk()
+      end,
+      "  unstage hunk",
+    },
+    ["<leader>gr"] = {
+      function()
+        require("gitsigns").reset_hunk()
+      end,
+      "  reset hunk",
+    },
+    ["<leader>gp"] = {
+      function()
+        require("gitsigns").preview_hunk()
+      end,
+      "  preview hunk",
+    },
     ["<leader>gd"] = {
       function()
         require("custom.plugins.git").compare()
       end,
-      "compare with another branch",
+      "  compare with another branch",
     },
   },
 }
@@ -116,19 +285,9 @@ M.http = {
   n = {
     ["<leader>hr"] = {
       function()
-        require('rest-nvim').run()
+        require("rest-nvim").run()
       end,
-      "蘒  run HTTP request",
-    },
-  },
-}
-
-M.lsp = {
-  n = {
-    ["<leader>rn"] = {
-      function()
-        vim.lsp.buf.rename()
-      end,
+      "🕸  run HTTP request",
     },
   },
 }
@@ -137,15 +296,28 @@ M.comment = {
   n = {
     ["<leader>cl"] = {
       function()
-        require("Comment.api").toggle_current_linewise()
+        require("Comment.api").toggle.linewise.current()
       end,
       "蘒  toggle comment",
     },
   },
   v = {
     ["<leader>cl"] = {
-      "<ESC><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>",
+      "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
       "蘒  toggle comment",
+    },
+  },
+}
+
+M.replacer = {
+  n = {
+    ["<leader>rr"] = {
+      function()
+        require("replacer").run({
+          rename_files = false,
+        })
+      end,
+      "✎  replace in quickfix list",
     },
   },
 }

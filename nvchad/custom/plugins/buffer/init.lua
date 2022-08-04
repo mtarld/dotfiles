@@ -26,8 +26,19 @@ end
 
 M.switch_to_last_buffer = function()
   local last_buffer = M.get_last_buffer()
+
   if nil ~= last_buffer then
     vim.cmd("b" .. last_buffer)
+  end
+end
+
+M.close_other_buffers = function()
+  local current_buf = vim.api.nvim_get_current_buf()
+
+  for _, buf in ipairs(require('core.utils').bufilter()) do
+    if current_buf ~= buf then
+      vim.cmd('bd' .. buf)
+    end
   end
 end
 

@@ -121,4 +121,8 @@ return {
   ["goolord/alpha-nvim"] = {
     disable = false,
   },
+
+  -- search and replace
+  ["gabrielpoca/replacer.nvim"] = {
+  },
 }
