@@ -1,3 +1,5 @@
+print("plugins")
+
 return {
 
   -- telescope

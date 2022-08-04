@@ -11,7 +11,7 @@ local function root_directory()
   local toplevel = vim.fn.system(cmd)
 
   if not toplevel or #toplevel == 0 or toplevel:match("fatal") then
-    return nil
+    return vim.fn.getcwd()
   end
 
   return toplevel:sub(0, -2)

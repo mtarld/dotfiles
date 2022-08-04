@@ -3,7 +3,7 @@ local M = {}
 M.general = {
   n = {
     ["<leader>qq"] = { ":xa!<CR>", " quit nvim" },
-    ["<leader>fs"] = { "<cmd> :w<CR>", "﬚ save file" },
+    ["<leader>fs"] = { ":w<CR>", "﬚ save file" },
   },
 }
 
@@ -20,8 +20,8 @@ M.windows = {
     ["<leader>ws"] = { ":lua require('shade').toggle()<CR>", "  toggle window shading" },
     ["<C-l>"] = { ":TmuxNavigateRight<CR>", " window right (tmux included)" },
     ["<C-h>"] = { ":TmuxNavigateLeft<CR>", " window left (tmux included)" },
-    ["<C-j>"] = { ":TmuxNavigateBottom<CR>", " window bottom (tmux included)" },
-    ["<C-k>"] = { ":TmuxNavigateTop<CR>", " window top (tmux included)" },
+    ["<C-j>"] = { ":TmuxNavigateDown<CR>", " window bottom (tmux included)" },
+    ["<C-k>"] = { ":TmuxNavigateUp<CR>", " window top (tmux included)" },
   },
 }
 

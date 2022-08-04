@@ -17,6 +17,15 @@ M.treesitter = {
   },
 }
 
+M.nvimtree = {
+  update_focused_file = {
+    enable = false,
+  },
+  renderer = {
+    highlight_opened_files = "name",
+  },
+}
+
 M.telescope = {
   pickers = {
     buffers = {
@@ -105,7 +114,7 @@ M.alpha = {
   buttons = {
     type = "group",
     val = {
-      alpha_button("<leader>ff  ", "  " .. require('custom.plugins.directory').root_dir() .. "  ", ":Telescope find_files<CR>"),
+      alpha_button("<leader>ff  ", "  " .. require("custom.plugins.directory").root_dir() .. "  ", ":Telescope find_files<CR>"),
       alpha_button("<leader>px  ", "  notes  ", ":e" .. vim.fn.stdpath "config" .. "/lua/custom/plugins/buffer/projects.org<CR>"),
       alpha_button("<leader>qq  ", "  quit  ", ":xa!<CR>"),
     },
