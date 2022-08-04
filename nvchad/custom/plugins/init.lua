@@ -1,5 +1,3 @@
-print("plugins")
-
 return {
 
   -- telescope
