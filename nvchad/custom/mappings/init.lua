@@ -38,7 +38,7 @@ M.windows = {
     ["<leader>wk"] = { "<C-w>k", "  window top" },
     ["<leader>wm"] = {
       function()
-        vim.cmd("MaximizerToggle") -- TODO doesn't seem to toggle off properly
+        vim.cmd("MaximizerToggle")
       end,
       "  maximize window",
     },
@@ -107,7 +107,7 @@ M.buffers = {
       end,
       "烙 open project buffer",
     },
-    ["<TAB>"] = { "" }, -- TODO maybe there is a better way to unmap this
+    ["<TAB>"] = { "" },
     ["<S-Tab>"] = { "" },
   },
 }
@@ -227,7 +227,6 @@ M.telescope = {
   },
 }
 
--- TODO gitsigns when staged
 M.git = {
   n = {
     ["<leader>gg"] = {
