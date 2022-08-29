@@ -18,6 +18,8 @@ M.treesitter = {
 }
 
 M.nvimtree = {
+  hijack_netrw = false,
+
   update_focused_file = {
     enable = false,
   },
@@ -37,6 +39,21 @@ M.telescope = {
         },
         n = {
           ["<C-x>"] = "delete_buffer",
+        },
+      },
+    },
+  },
+
+  extensions = {
+    file_browser = {
+      hijack_netrw = true,
+
+      mappings = {
+        n = {
+          ["."] = require("custom.plugins.telescope.actions").live_grep,
+          ["/"] = function (prompt_bufnr)
+            require("custom.plugins.telescope.actions").live_grep(prompt_bufnr, true)
+          end,
         },
       },
     },
@@ -122,7 +139,7 @@ M.alpha = {
   buttons = {
     type = "group",
     val = {
-      alpha_button("<leader>ff  ", "  " .. require("custom.plugins.directory").root_dir() .. "  ", ":Telescope find_files<CR>"),
+      alpha_button("<leader>ff  ", "  " .. require("custom.plugins.directory").root_dir() .. "  ", ":Telescope file_browser<CR>"),
       alpha_button("<leader>px  ", "  notes  ", ":e" .. vim.fn.stdpath "config" .. "/lua/custom/plugins/buffer/projects.org<CR>"),
       alpha_button("<leader>qq  ", "  quit  ", ":xa!<CR>"),
     },

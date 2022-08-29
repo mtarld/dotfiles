@@ -199,9 +199,7 @@ M.telescope = {
     ["<leader>/"] = {
       function()
         require("telescope.builtin").live_grep({
-          additional_args = function ()
-            return { "--no-ignore" }
-          end
+          no_ignore = true,
         })
       end,
       "  find in files (ignored files included)",
