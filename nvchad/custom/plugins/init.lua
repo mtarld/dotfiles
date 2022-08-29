@@ -3,25 +3,16 @@ return {
   -- telescope
 
   ["nvim-telescope/telescope-live-grep-args.nvim"] = {
-    after = "telescope.nvim",
-    config = function()
-      require("telescope").load_extension "live_grep_args"
-    end,
+    module = "telescope",
   },
 
   ["nvim-telescope/telescope-file-browser.nvim"] = {
-    after = "telescope.nvim",
-    config = function()
-      require("telescope").load_extension "file_browser"
-    end,
+    module = "telescope",
   },
 
   ["nvim-telescope/telescope-fzf-native.nvim"] = {
-    after = "telescope.nvim",
+    module = "telescope",
     run = "make",
-    config = function()
-      require("telescope").load_extension "fzf"
-    end,
   },
 
   -- window
