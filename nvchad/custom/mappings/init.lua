@@ -6,13 +6,13 @@ M.general = {
       function()
         vim.cmd("xa!")
       end,
-      "  quit nvim",
+      "quit nvim",
     },
     ["<leader>fs"] = {
       function()
         vim.cmd("w")
       end,
-      "﬚  save file",
+      "save file",
     },
   },
 }
@@ -23,54 +23,54 @@ M.windows = {
       function()
         vim.cmd("vsp")
       end,
-      "-  split window vertically",
+      "split window vertically",
     },
     ["<leader>w_"] = {
       function()
         vim.cmd("sp")
       end,
-      "|  split window horizontally",
+      "split window horizontally",
     },
-    ["<leader>wd"] = { "<C-w>q", "  close window" },
-    ["<leader>wl"] = { "<C-w>l", "  window right" },
-    ["<leader>wh"] = { "<C-w>h", "  window left" },
-    ["<leader>wj"] = { "<C-w>j", "  window bottom" },
-    ["<leader>wk"] = { "<C-w>k", "  window top" },
+    ["<leader>wd"] = { "<C-w>q", "close window" },
+    ["<leader>wl"] = { "<C-w>l", "window right" },
+    ["<leader>wh"] = { "<C-w>h", "window left" },
+    ["<leader>wj"] = { "<C-w>j", "window bottom" },
+    ["<leader>wk"] = { "<C-w>k", "window top" },
     ["<leader>wm"] = {
       function()
         vim.cmd("MaximizerToggle")
       end,
-      "  maximize window",
+      "maximize window",
     },
     ["<leader>ws"] = {
       function()
         require("shade").toggle()
       end,
-      "  toggle window shading",
+      "toggle window shading",
     },
     ["<C-l>"] = {
       function()
         vim.cmd("TmuxNavigateRight")
       end,
-      "  window right (tmux included)",
+      "window right (tmux included)",
     },
     ["<C-h>"] = {
       function()
         vim.cmd("TmuxNavigateLeft")
       end,
-      "  window left (tmux included)",
+      "window left (tmux included)",
     },
     ["<C-j>"] = {
       function()
         vim.cmd("TmuxNavigateDown")
       end,
-      "  window bottom (tmux included)",
+      "window bottom (tmux included)",
     },
     ["<C-k>"] = {
       function()
         vim.cmd("TmuxNavigateUp")
       end,
-      "  window top (tmux included)",
+      "window top (tmux included)",
     },
   },
 }
@@ -81,31 +81,31 @@ M.buffers = {
       function()
         require("custom.plugins.buffer").switch_to_last_buffer()
       end,
-      "  last buffer",
+      "last buffer",
     },
     ["<leader>bd"] = {
       function()
         require("core.utils").close_buffer()
       end,
-      "  close buffer",
+      "close buffer",
     },
     ["<leader>bo"] = {
       function()
         require("custom.plugins.buffer").close_other_buffers()
       end,
-      "  close other buffers",
+      "close other buffers",
     },
     ["<leader>bx"] = {
       function()
         vim.cmd("Scratch")
       end,
-      "烙 open scratch buffer"
+      "open scratch buffer"
     },
     ["<leader>px"] = {
       function()
         vim.cmd("e" .. vim.fn.stdpath("config") .. "/lua/custom/plugins/buffer/projects.org")
       end,
-      "烙 open project buffer",
+      "open project buffer",
     },
     ["<TAB>"] = { "" },
     ["<S-Tab>"] = { "" },
@@ -118,19 +118,19 @@ M.directory = {
       function()
         require("custom.plugins.directory").cwd_root()
       end,
-      "Set current directory to root",
+      "set current directory to root",
     },
     ["<leader>o-"] = {
       function()
         require("custom.plugins.directory").cwd_buffer()
       end,
-      "Set current directory to buffer one",
+      "set current directory to buffer one",
     },
     ["<leader>^"] = {
       function()
         require("custom.plugins.directory").cwd_parent()
       end,
-      "Set current directory to parent",
+      "set current directory to parent",
     },
     ["<leader>yf"] = {
       function()
@@ -147,49 +147,49 @@ M.telescope = {
       function()
         vim.cmd("Telescope live_grep")
       end,
-      "  find in files",
+      "find in files",
     },
     ["<C-s>"] = {
       function()
         vim.cmd("Telescope current_buffer_fuzzy_find")
       end,
-      "  find in buffer",
+      "find in buffer",
     },
     ["<leader>bb"] = {
       function()
         vim.cmd("Telescope buffers")
       end,
-      "  find buffers",
+      "find buffers",
     },
     ["<leader>fr"] = {
       function()
         vim.cmd("Telescope oldfiles")
       end,
-      "  find old files",
+      "find old files",
     },
     ["<leader>gb"] = {
       function()
         vim.cmd("Telescope git_branches")
       end,
-      "  find git branches",
+      "find git branches",
     },
     ["<leader>gc"] = {
       function()
         vim.cmd("Telescope git_commits")
       end,
-      "  find git commits",
+      "find git commits",
     },
     ["<leader>gl"] = {
       function()
         vim.cmd("Telescope git_bcommits")
       end,
-      "  find git branch commits",
+      "find git branch commits",
     },
     ["<leader> "] = {
       function()
         vim.cmd("Telescope find_files")
       end,
-      "  find files",
+      "find files",
     },
     ["<leader>ff"] = {
       function()
@@ -200,7 +200,7 @@ M.telescope = {
           cwd_to_path = true,
         })
       end,
-      "  file browser",
+      "file browser",
     },
     ["<leader>/"] = {
       function()
@@ -208,25 +208,25 @@ M.telescope = {
           no_ignore = true,
         })
       end,
-      "  find in files (ignored files included)",
+      "find in files (ignored files included)",
     },
     ["<leader>§"] = {
       function()
         vim.cmd("Telescope live_grep_args")
       end,
-      "  find in files (with ripgrep args)",
+      "find in files (with ripgrep args)",
     },
     ["gd"] = {
       function()
         vim.cmd("Telescope lsp_definitions")
       end,
-      "  find LSP definitions",
+      "find LSP definitions",
     },
     ["gr"] = {
       function()
         vim.cmd("Telescope lsp_references")
       end,
-      "  find LSP references",
+      "find LSP references",
     },
   },
 }
@@ -237,49 +237,49 @@ M.git = {
       function()
         vim.cmd("Git")
       end,
-      "  git status",
+      "git status",
     },
     ["<leader>gf"] = {
       function()
         vim.cmd("diffget //2")
       end,
-      "  apply left diff",
+      "apply left diff",
     },
     ["<leader>gh"] = {
       function()
         vim.cmd("diffget //3")
       end,
-      "  apply right diff",
+      "apply right diff",
     },
     ["<leader>gs"] = {
       function()
         require("gitsigns").stage_hunk()
       end,
-      "烙  stage hunk",
+      "stage hunk",
     },
     ["<leader>gu"] = {
       function()
         require("gitsigns").undo_stage_hunk()
       end,
-      "  unstage hunk",
+      "unstage hunk",
     },
     ["<leader>gr"] = {
       function()
         require("gitsigns").reset_hunk()
       end,
-      "  reset hunk",
+      "reset hunk",
     },
     ["<leader>gp"] = {
       function()
         require("gitsigns").preview_hunk()
       end,
-      "  preview hunk",
+      "preview hunk",
     },
     ["<leader>gd"] = {
       function()
         require("custom.plugins.git").compare()
       end,
-      "  compare with another branch",
+      "compare with another branch",
     },
   },
 }
@@ -290,7 +290,7 @@ M.http = {
       function()
         require("rest-nvim").run()
       end,
-      "🕸  run HTTP request",
+      "run HTTP request",
     },
   },
 }
@@ -301,13 +301,13 @@ M.comment = {
       function()
         require("Comment.api").toggle.linewise.current()
       end,
-      "蘒  toggle comment",
+      "toggle comment",
     },
   },
   v = {
     ["<leader>cl"] = {
       "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-      "蘒  toggle comment",
+      "toggle comment",
     },
   },
 }
@@ -320,7 +320,7 @@ M.replacer = {
           rename_files = false,
         })
       end,
-      "✎  replace in quickfix list",
+      "replace in quickfix list",
     },
   },
 }
