@@ -118,20 +118,26 @@ M.directory = {
       function()
         require("custom.plugins.directory").cwd_root()
       end,
-      "  Set current directory to root",
+      "Set current directory to root",
     },
     ["<leader>o-"] = {
       function()
         require("custom.plugins.directory").cwd_buffer()
       end,
-      "  Set current directory to buffer one",
+      "Set current directory to buffer one",
     },
     ["<leader>^"] = {
       function()
         require("custom.plugins.directory").cwd_parent()
       end,
-      "  Set current directory to parent",
+      "Set current directory to parent",
     },
+    ["<leader>yf"] = {
+      function()
+        vim.cmd("let @+=@%")
+      end,
+      "copy current file path",
+    }
   },
 }
 
