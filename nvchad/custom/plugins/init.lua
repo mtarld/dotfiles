@@ -83,6 +83,10 @@ return {
     end,
   },
 
+  ["phpactor/phpactor"] = {
+    run = "composer install --no-dev -o",
+  },
+
   -- org mode
   ["nvim-orgmode/orgmode"] = {
     config = function()

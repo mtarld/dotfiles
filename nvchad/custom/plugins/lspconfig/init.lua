@@ -21,7 +21,7 @@ for _, lsp in ipairs(servers) do
     end,
     capabilities = capabilities,
     flags = {
-      debounce_text_changes = 300,
+      debounce_text_changes = 150,
     }
   }
 end

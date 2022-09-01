@@ -204,11 +204,15 @@ M.telescope = {
     },
     ["<leader>/"] = {
       function()
-        require("telescope.builtin").live_grep({
-          no_ignore = true,
-        })
+        vim.cmd("Telescope live_grep no_ignore=true")
       end,
       "find in files (ignored files included)",
+    },
+    ["<leader>cp"] = {
+      function()
+        vim.cmd("PhpactorContextMenu")
+      end,
+      "open phpactor context menu",
     },
     ["<leader>§"] = {
       function()
