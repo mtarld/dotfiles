@@ -38,15 +38,9 @@ M.windows = {
     ["<leader>wk"] = { "<C-w>k", "window top" },
     ["<leader>wm"] = {
       function()
-        vim.cmd("MaximizerToggle")
+        require("maximize").toggle()
       end,
-      "maximize window",
-    },
-    ["<leader>ws"] = {
-      function()
-        require("shade").toggle()
-      end,
-      "toggle window shading",
+      "maximize current window",
     },
     ["<C-l>"] = {
       function()

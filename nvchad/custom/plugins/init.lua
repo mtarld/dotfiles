@@ -17,21 +17,13 @@ return {
 
   -- window
 
-  ["szw/vim-maximizer"] = {
-    cmd = "MaximizerToggle",
+  ["declancm/maximize.nvim"] = {
+    config = function()
+      require('maximize').setup()
+    end,
   },
 
   ["christoomey/vim-tmux-navigator"] = {
-  },
-
-  ["sunjon/shade.nvim"] = {
-    config = function()
-      require("shade").setup({
-        overlay_opacity = 50,
-        opacity_step = 1,
-        exclude_filetypes = { "NvimTree" },
-      })
-    end,
   },
 
   -- git
