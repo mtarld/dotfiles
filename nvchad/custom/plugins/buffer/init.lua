@@ -1,17 +1,21 @@
 local M = {}
 
 M.get_buffers = function(ignore_current_buffer)
-  local buffers = require("core.utils").bufilter() or {}
-
-  if ignore_current_buffer then
-    for i = #buffers, 1, -1 do
-      if buffers[i] == vim.api.nvim_get_current_buf() then
-        table.remove(buffers, i)
-      end
+  return vim.tbl_filter(function(b)
+    if 1 ~= vim.fn.buflisted(b) then
+      return false
     end
-  end
 
-  return buffers
+    if not vim.api.nvim_buf_is_loaded(b) then
+      return false
+    end
+
+    if ignore_current_buffer and b == vim.api.nvim_get_current_buf() then
+      return false
+    end
+
+    return true
+  end, vim.api.nvim_list_bufs() or {})
 end
 
 M.get_last_buffer = function()
