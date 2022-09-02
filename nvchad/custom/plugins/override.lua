@@ -26,6 +26,24 @@ M.nvimtree = {
   renderer = {
     highlight_opened_files = "name",
   },
+  view = {
+    mappings = {
+      list = {
+        {
+          key = ".",
+          action = "live_grep",
+          action_cb = require("custom.plugins.nvimtree.actions").live_grep,
+        },
+        {
+          key = "/",
+          action = "live_grep_no_ignore",
+          action_cb = function ()
+            require("custom.plugins.nvimtree.actions").live_grep(true)
+          end,
+        },
+      },
+    },
+  },
 }
 
 M.telescope = {
