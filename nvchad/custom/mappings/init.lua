@@ -101,8 +101,8 @@ M.buffers = {
       end,
       "open project buffer",
     },
-    ["<TAB>"] = { "" },
-    ["<S-Tab>"] = { "" },
+    ["<TAB>"] = nil,
+    ["<S-Tab>"] = nil,
   },
 }
 
