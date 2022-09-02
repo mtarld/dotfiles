@@ -37,8 +37,9 @@ M.nvimtree = {
         {
           key = "/",
           action = "live_grep_no_ignore",
-          action_cb = function ()
-            require("custom.plugins.nvimtree.actions").live_grep(true)
+          action_cb = function (opts)
+            opts.no_ignore = true
+            require("custom.plugins.nvimtree.actions").live_grep(opts)
           end,
         },
       },
