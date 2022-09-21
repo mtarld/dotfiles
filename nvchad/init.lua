@@ -12,10 +12,14 @@ autocmd("Filetype", {
 })
 
 -- Highlight yanked text
-autocmd("TextYankPost", {
-   callback = function()
-      vim.highlight.on_yank { higroup = "Visual", timeout = 100 }
-   end,
+autocmd('TextYankPost', {
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = "Visual",
+      timeout = 120,
+    })
+  end,
 })
 
 -- Enable spellchecking in markdown, text and gitcommit files
