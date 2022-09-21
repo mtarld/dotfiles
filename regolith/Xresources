@@ -1,0 +1,13 @@
+regolith.look.path: /usr/share/regolith-look/nord
+
+regolith.wallpaper.file: ~/.dotfiles/regolith/background.jpg
+regolith.wallpaper.options: zoom
+regolith.lockscreen.wallpaper.file: ~/.dotfiles/regolith/background.jpg
+regolith.lockscreen.wallpaper.options: zoom
+
+i3-wm.gaps.inner.size: 25
+
+i3-wm.bar.position: top
+i3-wm.bar.trayoutput: none
+
+i3-wm.binding.sleep: Shift+o

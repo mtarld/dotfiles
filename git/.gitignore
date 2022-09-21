@@ -1,0 +1,7 @@
+.mtarld
+
+*~
+*.swp
+*.swo
+
+.php-cs-fixer.cache

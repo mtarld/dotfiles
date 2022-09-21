@@ -79,7 +79,7 @@ M.buffers = {
     },
     ["<leader>bd"] = {
       function()
-        require("core.utils").close_buffer()
+        require("nvchad_ui.tabufline").close_buffer()
       end,
       "close buffer",
     },

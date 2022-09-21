@@ -1,0 +1,5 @@
+[user]
+	email = mathias.arlaud@gmail.com
+	name = Mathias Arlaud
+[core]
+	excludesfile = ~/.gitignore
