@@ -174,6 +174,7 @@ return {
   },
 
   ["phpactor/phpactor"] = {
+    run = "composer install --no-dev -o",
   },
 
   ["williamboman/mason.nvim"] = {
