@@ -27,7 +27,8 @@ sudo apt install \
   make \
   gcc \
   clang \
-  build-essential
+  build-essential \
+  mycli
 
 sudo apt remove nano
 
