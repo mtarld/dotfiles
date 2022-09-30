@@ -40,15 +40,7 @@ return {
               key = ".",
               action = "live_grep",
               action_cb = require("custom.plugins.nvimtree.actions").live_grep,
-            },
-            {
-              key = "/",
-              action = "live_grep_no_ignore",
-              action_cb = function (opts)
-                opts.no_ignore = true
-                require("custom.plugins.nvimtree.actions").live_grep(opts)
-              end,
-            },
+           },
           },
         },
       },

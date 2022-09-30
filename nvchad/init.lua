@@ -12,7 +12,7 @@ autocmd("Filetype", {
 })
 
 -- Highlight yanked text
-autocmd('TextYankPost', {
+autocmd("TextYankPost", {
   pattern = "*",
   callback = function()
     vim.highlight.on_yank({

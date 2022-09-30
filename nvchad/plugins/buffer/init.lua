@@ -48,7 +48,7 @@ M.switch_to_last_buffer = function()
 end
 
 M.close_other_buffers = function()
-  for _, buf in ipairs(M.get_buffers(true)) do
+  for _, buf in ipairs(M.get_buffers{ignore_current_buffer=true}) do
     vim.cmd(string.format("bd %s", buf))
   end
 end
