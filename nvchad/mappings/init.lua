@@ -237,6 +237,12 @@ M.git = {
       end,
       "git status",
     },
+    ["<leader>gd"] = {
+      function()
+        vim.cmd("Gvdiffsplit!")
+      end,
+      "git diff",
+    },
     ["<leader>gf"] = {
       function()
         vim.cmd("diffget //2")
@@ -273,7 +279,7 @@ M.git = {
       end,
       "preview hunk",
     },
-    ["<leader>gd"] = {
+    ["<leader>gc"] = {
       function()
         require("custom.plugins.git").compare()
       end,
