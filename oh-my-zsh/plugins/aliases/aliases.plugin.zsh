@@ -3,12 +3,12 @@ alias ll='ls -lAh'
 alias c='clear'
 
 # Tmux
-alias ta='tmux a'
-alias te='tmuxinator edit'
+alias ta='tmux attach'
+alias td='tmux detach'
 alias tls='tmux ls'
 alias tn='tmuxinator new'
 alias ts='tmuxinator start'
-alias tk='tmux kill-session -t'
+alias tk='tmuxinator stop'
 
 # Xclip
 alias xc='xclip -selection c'
