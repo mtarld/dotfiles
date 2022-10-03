@@ -29,3 +29,5 @@ autocmd("FileType", {
       vim.opt_local.spell = true
    end,
 })
+
+vim.opt.relativenumber = true
