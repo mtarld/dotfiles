@@ -1,0 +1,10 @@
+name: symfony
+root: ~/dev/symfony
+
+windows:
+  - nvim:
+      layout: 7d1b,191x60,0,0{95x60,0,0,17,95x60,96,0[95x45,96,0,20,95x14,96,46,21]}
+      panes:
+        - sleep 0.2 && clear && nvim
+        - sleep 0.2 && clear
+        - watch -t -n 1 --color "git --no-pager log --oneline --color -20 --decorate"

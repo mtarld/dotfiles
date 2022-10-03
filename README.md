@@ -96,6 +96,8 @@ ln -sf $HOME/.dotfiles/tmux/.tmux.conf.local $HOME/.tmux.conf.local
 
 sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O /usr/local/share/zsh/site-functions/_tmuxinator
 ln -sf $HOME/.dotfiles/tmux/projects $HOME/.tmuxinator
+
+sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O /usr/local/share/zsh/site-functions/_tmuxinator
 ```
 
 ### Install and configure "php"
