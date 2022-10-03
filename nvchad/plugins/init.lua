@@ -14,6 +14,7 @@ return {
         "org",
         "lua",
         "bash",
+        "twig",
       },
       indent = {
         enable = true,
