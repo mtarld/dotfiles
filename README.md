@@ -2,7 +2,6 @@ mtarld's dotfiles
 =================
 
 ## TODO
-- Open dashboard on every closed
 - Support editorconfig
 - Fix git compare with branch
 

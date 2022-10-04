@@ -58,10 +58,10 @@ return {
           ignore_current_buffer = true,
           mappings = {
             i = {
-              ["<C-x>"] = "delete_buffer",
+              ["<C-x>"] = require("custom.plugins.telescope.actions").delete_buffer
             },
             n = {
-              ["<C-x>"] = "delete_buffer",
+              ["<C-x>"] = require("custom.plugins.telescope.actions").delete_buffer
             },
           },
         },
@@ -222,35 +222,79 @@ return {
       },
       statusline = {
         overriden_modules = function()
-          return require "custom.plugins.ui.statusline"
+          return require("custom.plugins.ui.statusline")
         end,
       },
     },
   },
 
-  ["goolord/alpha-nvim"] = {
-    disable = false,
-    override_options = function ()
-      local dashboard = require("custom.plugins.ui.dashboard")
+  ["glepnir/dashboard-nvim"] = {
+    config = function ()
+      local dashboard = require("dashboard")
+      dashboard.custom_header = {
+        "                                                     ",
+        "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
+        "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
+        "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
+        "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+        "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+        "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+        "                                                     ",
+      }
+      dashboard.header_pad = 20;
+      dashboard.footer_pad = 10;
 
-      return {
-        header = {
-          val = dashboard.header
+      dashboard.custom_center = {
+        {
+          icon ="  ",
+          shortcut = "<leader>ff",
+          desc = "open files      ",
+          action = "Telescope file_browser hidden=true grouped=true",
         },
-        buttons = {
-          type = "group",
-          val = {
-            dashboard.button("<leader>ff  ", "  " .. require("custom.plugins.directory").root_dir() .. "  ", ":Telescope file_browser<CR>"),
-            dashboard.button("<leader>px  ", "  notes  ", ":e" .. vim.fn.stdpath "config" .. "/lua/custom/plugins/buffer/projects.org<CR>"),
-            dashboard.button("<leader>qq  ", "  quit  ", ":xa!<CR>"),
-          },
+        {
+          icon ="  ",
+          shortcut = "<leader>px",
+          desc = "notes           ",
+          action = "e" .. vim.fn.stdpath "config" .. "/lua/custom/plugins/buffer/projects.org",
         },
+        {
+          icon ="  ",
+          shortcut = "<leader>qq",
+          desc = "quit            ",
+          action = "xa!",
+        },
+
+      }
+
+      dashboard.custom_footer = {
+        require("custom.plugins.directory").root_dir()
       }
     end
+  },
+
+  ["lukas-reineke/indent-blankline.nvim"] = {
+    override_options = {
+      filetype_exclude = {
+        "help",
+        "terminal",
+        "alpha",
+        "packer",
+        "lspinfo",
+        "TelescopePrompt",
+        "TelescopeResults",
+        "mason",
+        "dashboard",
+        "",
+      },
+    },
   },
 
   -- search and replace
 
   ["gabrielpoca/replacer.nvim"] = {
+  },
+
+  -- buffers
+  ["famiu/bufdelete.nvim"] = {
   },
 }

@@ -79,7 +79,7 @@ M.buffers = {
     },
     ["<leader>bd"] = {
       function()
-        require("nvchad_ui.tabufline").close_buffer()
+        vim.cmd("Bdelete")
       end,
       "close buffer",
     },

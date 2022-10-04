@@ -18,4 +18,14 @@ M.live_grep = function(prompt_bufnr, no_ignore)
   ))
 end
 
+M.delete_buffer = function(prompt_bufnr)
+  local action_state = require("telescope.actions.state")
+  local current_picker = action_state.get_current_picker(prompt_bufnr)
+
+  current_picker:delete_selection(function(selection)
+    local force = vim.api.nvim_buf_get_option(selection.bufnr, "buftype") == "terminal"
+    require("bufdelete").bufdelete(selection.bufnr, force)
+  end)
+end
+
 return M
