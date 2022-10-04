@@ -2,7 +2,9 @@ mtarld's dotfiles
 =================
 
 ## TODO
-Nothing atm
+- Open dashboard on every closed
+- Support editorconfig
+- Fix git compare with branch
 
 ## Installation
 
@@ -102,7 +104,7 @@ sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/complet
 
 ### Install and configure "php"
 ```
-sudo apt install php php-cli
+sudo apt install php php-cli php-gd php-xml php-curl php-mysql php-intl
 
 curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
 sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
