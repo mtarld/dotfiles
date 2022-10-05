@@ -38,7 +38,7 @@ sudo ln -sf /usr/bin/batcat /usr/local/bin/bat
 ```
 
 ### Install required fonts
-Install [Jetbrains Mono](https://www.jetbrains.com/lp/mono/#how-to-install)
+Install [Jetbrains Mono](https://www.nerdfonts.com/font-downloads)
 ```
 sudo apt install fonts-powerline  # for oh my tmux
 ```

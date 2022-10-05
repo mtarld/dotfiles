@@ -11,3 +11,5 @@ i3-wm.bar.position: top
 i3-wm.bar.trayoutput: none
 
 i3-wm.binding.sleep: Shift+o
+
+gnome.terminal.font:	JetBrains Mono Nerd Font 12
