@@ -15,10 +15,9 @@ local get_target_dir = function()
   return cwd
 end
 
-M.live_grep = function(opts)
+M.live_grep = function()
   vim.cmd(string.format(
-    "Telescope live_grep no_ignore=%s cwd=%s",
-    tostring(opts.no_ignore or false),
+    "Telescope live_grep cwd=%s",
     get_target_dir()
   ))
 end

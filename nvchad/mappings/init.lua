@@ -139,7 +139,7 @@ M.telescope = {
   n = {
     ["<leader>."] = {
       function()
-        vim.cmd("Telescope live_grep")
+        require("custom.plugins.telescope.actions").live_grep()
       end,
       "find in files",
     },
@@ -161,44 +161,30 @@ M.telescope = {
       end,
       "find old files",
     },
-    ["<leader>gb"] = {
-      function()
-        vim.cmd("Telescope git_branches")
-      end,
-      "find git branches",
-    },
-    ["<leader>gc"] = {
-      function()
-        vim.cmd("Telescope git_commits")
-      end,
-      "find git commits",
-    },
-    ["<leader>gl"] = {
-      function()
-        vim.cmd("Telescope git_bcommits")
-      end,
-      "find git branch commits",
-    },
     ["<leader> "] = {
       function()
-        vim.cmd("Telescope find_files")
+        vim.cmd("Telescope find_files hidden=true")
+      end,
+      "find files",
+    },
+    ["<leader>fa"] = {
+      function()
+        vim.cmd("Telescope find_files hidden=true no_ignore=true")
       end,
       "find files",
     },
     ["<leader>ff"] = {
       function()
-        require("telescope").extensions.file_browser.file_browser({
-          hidden = true,
-          grouped = true,
-          path = require("custom.plugins.directory").buffer_dir(),
-          cwd_to_path = true,
-        })
+        vim.cmd(string.format(
+          "Telescope file_browser hidden=true grouped=true cwd_to_path=true path=%s",
+          require("custom.plugins.directory").buffer_dir()
+        ))
       end,
       "file browser",
     },
     ["<leader>/"] = {
       function()
-        vim.cmd("Telescope live_grep no_ignore=true")
+        require("custom.plugins.telescope.actions").live_grep(nil, { unrestricted = true })
       end,
       "find in files (ignored files included)",
     },

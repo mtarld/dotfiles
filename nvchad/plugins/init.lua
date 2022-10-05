@@ -74,9 +74,6 @@ return {
           mappings = {
             n = {
               ["."] = require("custom.plugins.telescope.actions").live_grep,
-              ["/"] = function (prompt_bufnr)
-                require("custom.plugins.telescope.actions").live_grep(prompt_bufnr, true)
-              end,
             },
           },
         },

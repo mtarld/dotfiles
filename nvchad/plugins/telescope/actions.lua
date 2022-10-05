@@ -10,11 +10,32 @@ local get_target_dir = function(prompt_bufnr)
   return finder.files and finder.path or entry_path
 end
 
-M.live_grep = function(prompt_bufnr, no_ignore)
+M.live_grep = function(prompt_bufnr, opts)
+  local rg_args = {
+    "rg",
+    "--color=never",
+    "--no-heading",
+    "--with-filename",
+    "--line-number",
+    "--column",
+    "--smart-case",
+  }
+
+  if opts.unrestricted == true then
+    rg_args[#rg_args+1] = "-uu"
+  end
+
+  local live_grep_opts = {
+    string.format("vimgrep_arguments=%s", table.concat(rg_args, ','))
+  }
+
+  if prompt_bufnr ~= nil then
+    live_grep_opts[#live_grep_opts+1] = string.format("cwd=%s", get_target_dir(prompt_bufnr))
+  end
+
   vim.cmd(string.format(
-    "Telescope live_grep no_ignore=%s cwd=%s",
-    tostring(no_ignore or false),
-    get_target_dir(prompt_bufnr)
+    "Telescope live_grep %s",
+    table.concat(live_grep_opts, ' ')
   ))
 end
 

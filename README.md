@@ -3,8 +3,6 @@ mtarld's dotfiles
 
 ## TODO
 - Support editorconfig
-- Fix live grep vendor (<leader>/)
-- Fix git compare with branch
 
 ## Installation
 
