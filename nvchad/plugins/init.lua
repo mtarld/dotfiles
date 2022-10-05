@@ -246,21 +246,27 @@ return {
 
       dashboard.custom_center = {
         {
-          icon ="  ",
+          icon ="פּ  ",
           shortcut = "<leader>ff",
-          desc = "open files      ",
-          action = "Telescope file_browser hidden=true grouped=true",
+          desc = "open file browser    ",
+          action = "Telescope file_browser hidden=true",
+        },
+        {
+          icon ="  ",
+          shortcut = "<leader>spc",
+          desc = "browse files         ",
+          action = "Telescope find_files hidden=true grouped=true",
         },
         {
           icon ="  ",
           shortcut = "<leader>px",
-          desc = "notes           ",
+          desc = "open notes           ",
           action = "e" .. vim.fn.stdpath "config" .. "/lua/custom/plugins/buffer/projects.org",
         },
         {
           icon ="  ",
           shortcut = "<leader>qq",
-          desc = "quit            ",
+          desc = "quit                 ",
           action = "xa!",
         },
 
