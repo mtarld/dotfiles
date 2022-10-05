@@ -1,13 +1,13 @@
 local M = {}
 
-M.get_buffers = function (ignore_current_buffer, sort_mru)
+M.get_buffers = function (opts)
   local buffers = vim.tbl_filter(
     function (b)
       if 1 ~= vim.fn.buflisted(b) then
         return false
       end
 
-      if (ignore_current_buffer or false) and b == vim.api.nvim_get_current_buf() then
+      if (opts.ignore_current_buffer or false) and b == vim.api.nvim_get_current_buf() then
         return false
       end
 
@@ -20,7 +20,7 @@ M.get_buffers = function (ignore_current_buffer, sort_mru)
     return {}
   end
 
-  if (sort_mru or false) then
+  if (opts.sort_mru or false) then
     table.sort(buffers, function(a, b)
       return vim.fn.getbufinfo(a)[1].lastused > vim.fn.getbufinfo(b)[1].lastused
     end)
@@ -30,7 +30,7 @@ M.get_buffers = function (ignore_current_buffer, sort_mru)
 end
 
 M.get_last_buffer = function()
-  local buffers = M.get_buffers{ignore_current_buffer=true}
+  local buffers = M.get_buffers({ ignore_current_buffer = true })
 
   table.sort(buffers, function(a, b)
     return vim.fn.getbufinfo(a)[1].lastused > vim.fn.getbufinfo(b)[1].lastused
@@ -50,7 +50,7 @@ end
 M.close_other_buffers = function()
   local bufdelete = require('bufdelete')
 
-  for _, buf in ipairs(M.get_buffers{ignore_current_buffer=true}) do
+  for _, buf in ipairs(M.get_buffers({ ignore_current_buffer = true })) do
     bufdelete.bufdelete(buf)
   end
 end
