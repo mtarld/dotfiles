@@ -3,6 +3,7 @@ mtarld's dotfiles
 
 ## TODO
 - Support editorconfig
+- Fix live grep vendor (<leader>/)
 - Fix git compare with branch
 
 ## Installation
@@ -103,7 +104,7 @@ sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/complet
 
 ### Install and configure "php"
 ```
-sudo apt install php php-cli php-gd php-xml php-curl php-mysql php-intl
+sudo apt install php php-cli php-gd php-xml php-curl php-mysql php-intl php-mbstring
 
 curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
 sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
