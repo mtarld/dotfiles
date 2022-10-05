@@ -125,8 +125,8 @@ sudo dpkg -i nvim-linux64.deb
 cd -
 rm -rf $HOME/.local/share/nvim
 git clone https://github.com/NvChad/NvChad $HOME/.config/nvim --depth 1
-ln -sf $HOME/.dotfiles/nvchad $HOME/.config/nvim/lua/custom
-ln -sf $HOME/.dotfiles/nvchad/.editorconfig $HOME/.editorconfig
+ln -sf $HOME/.dotfiles/nvim/nvchad $HOME/.config/nvim/lua/custom
+ln -sf $HOME/.dotfiles/nvim/.editorconfig $HOME/.editorconfig
 nvim +PackerSync
 ```
 
