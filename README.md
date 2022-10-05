@@ -2,7 +2,7 @@ mtarld's dotfiles
 =================
 
 ## TODO
-- Support editorconfig
+Nothing atm.
 
 ## Installation
 
@@ -126,6 +126,7 @@ cd -
 rm -rf $HOME/.local/share/nvim
 git clone https://github.com/NvChad/NvChad $HOME/.config/nvim --depth 1
 ln -sf $HOME/.dotfiles/nvchad $HOME/.config/nvim/lua/custom
+ln -sf $HOME/.dotfiles/nvchad/.editorconfig $HOME/.editorconfig
 nvim +PackerSync
 ```
 

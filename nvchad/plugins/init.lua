@@ -300,4 +300,8 @@ return {
   -- buffers
   ["famiu/bufdelete.nvim"] = {
   },
+
+  -- editorconfig
+  ["gpanders/editorconfig.nvim"] = {
+  }
 }
