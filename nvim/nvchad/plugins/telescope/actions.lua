@@ -11,6 +11,8 @@ local get_target_dir = function(prompt_bufnr)
 end
 
 M.live_grep = function(prompt_bufnr, opts)
+  local options = opts or {}
+
   local rg_args = {
     "rg",
     "--color=never",
@@ -21,7 +23,7 @@ M.live_grep = function(prompt_bufnr, opts)
     "--smart-case",
   }
 
-  if opts.unrestricted == true then
+  if options.unrestricted or false == true then
     rg_args[#rg_args+1] = "-uu"
   end
 

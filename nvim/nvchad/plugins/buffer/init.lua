@@ -1,13 +1,15 @@
 local M = {}
 
 M.get_buffers = function (opts)
+  local options = opts or {}
+
   local buffers = vim.tbl_filter(
     function (b)
       if 1 ~= vim.fn.buflisted(b) then
         return false
       end
 
-      if (opts.ignore_current_buffer or false) and b == vim.api.nvim_get_current_buf() then
+      if (options.ignore_current_buffer or false) and b == vim.api.nvim_get_current_buf() then
         return false
       end
 
@@ -20,7 +22,7 @@ M.get_buffers = function (opts)
     return {}
   end
 
-  if (opts.sort_mru or false) then
+  if (options.sort_mru or false) then
     table.sort(buffers, function(a, b)
       return vim.fn.getbufinfo(a)[1].lastused > vim.fn.getbufinfo(b)[1].lastused
     end)

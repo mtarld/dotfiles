@@ -238,7 +238,7 @@ return {
         "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
         "                                                     ",
       }
-      dashboard.header_pad = 20;
+      dashboard.header_pad = 15;
       dashboard.footer_pad = 10;
 
       dashboard.custom_center = {
@@ -250,7 +250,7 @@ return {
         },
         {
           icon ="  ",
-          shortcut = "<leader>spc",
+          shortcut = "<leader> ",
           desc = "browse files         ",
           action = "Telescope find_files hidden=true grouped=true",
         },
