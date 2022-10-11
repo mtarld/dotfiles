@@ -278,5 +278,12 @@ return {
 
   -- editorconfig
   ["gpanders/editorconfig.nvim"] = {
+  },
+
+  -- markdown
+  ["iamcco/markdown-preview.nvim"] = {
+    run = function()
+      vim.fn["mkdp#util#install"]()
+    end,
   }
 }
