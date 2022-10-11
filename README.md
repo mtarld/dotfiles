@@ -119,7 +119,7 @@ composer global require friendsofphp/php-cs-fixer
 ### Install and configure "neovim"
 ```
 cd /tmp
-NVIM_VERSION=0.7.2 # Put the last version available
+NVIM_VERSION=v0.8.0 # Put the last version available
 curl -LO https://github.com/neovim/neovim/releases/download/$NVIM_VERSION/nvim-linux64.deb
 sudo dpkg -i nvim-linux64.deb
 cd -
