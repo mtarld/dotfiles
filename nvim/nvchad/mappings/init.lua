@@ -97,7 +97,7 @@ M.buffers = {
     },
     ["<leader>px"] = {
       function()
-        vim.cmd("e" .. vim.fn.stdpath("config") .. "/lua/custom/plugins/buffer/projects.org")
+        vim.cmd("e" .. vim.fn.stdpath("config") .. "/lua/custom/plugins/buffer/projects.md")
       end,
       "open project buffer",
     },
