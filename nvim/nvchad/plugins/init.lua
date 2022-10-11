@@ -15,6 +15,7 @@ return {
         "lua",
         "bash",
         "twig",
+        "http",
       },
       indent = {
         enable = true,

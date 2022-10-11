@@ -28,7 +28,9 @@ sudo apt install \
   gcc \
   clang \
   build-essential \
-  mycli
+  mycli \
+  tidy \
+  jq
 
 sudo apt remove nano
 
