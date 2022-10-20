@@ -21,3 +21,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Do not share history between windows and panes
 unsetopt share_history
+
+# Automatically added by n-install (see http://git.io/n-install-repo).
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"

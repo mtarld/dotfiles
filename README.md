@@ -76,6 +76,11 @@ cp -R /usr/share/i3xrocks/conf.d/90_time $HOME/.config/regolith2/i3xrocks/conf.d
 regolith-look refresh
 ```
 
+### Install and configure "node"
+```
+curl -L https://bit.ly/n-install | bash
+```
+
 ### Install and configure "oh my zsh"
 ```
 sudo apt install zsh
