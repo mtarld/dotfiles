@@ -2,7 +2,9 @@ mtarld's dotfiles
 =================
 
 ## TODO
-Nothing atm.
+- psalm lsp
+- invert esc/caps lock
+- i3 window and specific workspaces
 
 ## Installation
 
