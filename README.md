@@ -2,7 +2,6 @@ mtarld's dotfiles
 =================
 
 ## TODO
-- psalm lsp
 - invert esc/caps lock
 - i3 window and specific workspaces
 
@@ -123,7 +122,7 @@ composer install -o --no-dev
 sudo ln -sf $HOME/.phpactor/bin/phpactor /usr/local/bin/phpactor
 ln -sf $HOME/.dotfiles/phpactor $HOME/.config/phpactor
 
-composer global require friendsofphp/php-cs-fixer
+composer global require friendsofphp/php-cs-fixer vimeo/psalm
 ```
 
 ### Install and configure "neovim"

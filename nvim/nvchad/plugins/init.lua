@@ -177,7 +177,13 @@ return {
         "css-lsp",
         "html-lsp",
         "typescript-language-server",
+
+        -- configuration
         "json-lsp",
+        "yaml-language-server",
+
+        -- documentation
+        "marksman",
 
         -- shell
         "shellcheck",

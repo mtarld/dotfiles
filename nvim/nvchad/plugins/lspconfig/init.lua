@@ -3,11 +3,22 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 local servers = {
+  -- lua
+  "sumneko_lua",
+
+  -- web
   "phpactor",
+  -- "psalm", -- disabled because it cannot support intersection types yet
   "tsserver",
   "html",
   "cssls",
+
+  -- configuration
   "jsonls",
+  "yamlls",
+
+  -- documentation
+  "marksman",
 }
 
 for _, lsp in ipairs(servers) do
