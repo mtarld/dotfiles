@@ -4,5 +4,6 @@
   "code_transform.class_new.variants": {
     "default": "default",
     "command": "command"
-  }
+  },
+  "symfony.enabled": true
 }
