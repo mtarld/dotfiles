@@ -30,7 +30,8 @@ sudo apt install \
   build-essential \
   mycli \
   tidy \
-  jq
+  jq \
+  gnome-screenshot
 
 sudo apt remove nano
 
