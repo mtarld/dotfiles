@@ -239,7 +239,7 @@ return {
           icon ="  ",
           shortcut = "<leader>px",
           desc = "open notes           ",
-          action = "e" .. vim.fn.stdpath "config" .. "/lua/custom/plugins/buffer/projects.md",
+          action = "e" .. vim.fn.stdpath "config" .. "/lua/custom/plugins/buffer/notes.md",
         },
         {
           icon ="  ",

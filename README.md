@@ -127,15 +127,21 @@ composer global require friendsofphp/php-cs-fixer vimeo/psalm
 
 ### Install and configure "neovim"
 ```
+# Decrypt notes.md
+$HOME/.dotfiles/notes/decrypt.sh
+
 cd /tmp
 NVIM_VERSION=v0.8.0 # Put the last version available
 curl -LO https://github.com/neovim/neovim/releases/download/$NVIM_VERSION/nvim-linux64.deb
 sudo dpkg -i nvim-linux64.deb
 cd -
 rm -rf $HOME/.local/share/nvim
+
 git clone https://github.com/NvChad/NvChad $HOME/.config/nvim --depth 1
+
 ln -sf $HOME/.dotfiles/nvim/nvchad $HOME/.config/nvim/lua/custom
 ln -sf $HOME/.dotfiles/nvim/.editorconfig $HOME/.editorconfig
+
 nvim +PackerSync
 ```
 
