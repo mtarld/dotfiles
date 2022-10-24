@@ -278,6 +278,10 @@ return {
   ["gabrielpoca/replacer.nvim"] = {
   },
 
+  ["tpope/vim-abolish"] = {
+    cmd = { "Subvert", "S" },
+  },
+
   -- buffers
   ["famiu/bufdelete.nvim"] = {
   },
