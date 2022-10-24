@@ -38,7 +38,7 @@ M.windows = {
     ["<leader>wk"] = { "<C-w>k", "window top" },
     ["<leader>wm"] = {
       function()
-        require("maximize").toggle()
+        vim.cmd("WindowsMaximize")
       end,
       "maximize current window",
     },

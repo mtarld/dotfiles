@@ -104,10 +104,12 @@ return {
 
   -- window
 
-  ["declancm/maximize.nvim"] = {
+  ["anuvyklack/windows.nvim"] = {
+    cmd = { "WindowsMaximize" },
+    requires = "anuvyklack/middleclass",
     config = function()
-      require('maximize').setup()
-    end,
+      require('windows').setup()
+    end
   },
 
   ["christoomey/vim-tmux-navigator"] = {
