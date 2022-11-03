@@ -4,6 +4,7 @@ mtarld's dotfiles
 ## TODO
 - invert esc/caps lock
 - i3 window and specific workspaces
+- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 
 ## Installation
 
