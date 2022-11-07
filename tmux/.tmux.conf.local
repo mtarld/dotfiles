@@ -375,5 +375,25 @@ bind-key -T copy-mode-vi 'C-k' select-pane -U
 bind-key -T copy-mode-vi 'C-l' select-pane -R
 bind-key -T copy-mode-vi 'C-\' select-pane -l
 
-bind -n M-h previous-window
-bind -n M-l next-window
+bind-key -n M-& select-window -t 1
+bind-key -n M-é select-window -t 2
+bind-key -n M-\" select-window -t 3
+bind-key -n M-\' select-window -t 4
+bind-key -n M-( select-window -t 5
+bind-key -n M-\- select-window -t 6
+bind-key -n M-è select-window -t 7
+bind-key -n M-_ select-window -t 8
+bind-key -n M-ç select-window -t 9
+bind-key -n M-à select-window -t 10
+
+bind-key -n M-z resize-pane -Z
+
+bind-key -n M-h resize-pane -L 2
+bind-key -n M-j resize-pane -D 1
+bind-key -n M-k resize-pane -U 1
+bind-key -n M-l resize-pane -R 2
+
+bind-key -n M-x confirm-before -p "kill-pane #P? (y/n)" kill-pane
+bind-key -n M-X kill-pane
+
+bind-key -n M-c new-window
